@@ -1,255 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fruit Shop - Order Fresh Fruits Online</title>
-    <style>
-        /* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>SS Fruits Shop</title>
+   <style>
+      /* General Styles */
+      body {
+         font-family: 'Arial', sans-serif;
+         margin: 0;
+         padding: 0;
+         background-color: #f4f4f9;
+         color: #333;
+         line-height: 1.6;
+      }
 
-/* Body & Basic Styling */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-}
+      /* Header Section */
+      #Headingbox {
+         text-align: center;
+         padding: 40px;
+         margin-left:25px;
+         background: linear-gradient(to right, #ff9999, #ffcc99);
+         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+         border-bottom: 4px solid #ff6600;
+         height:100px;
+         width:800px;
+      }
 
-/* Header Styling */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #4CAF50;
-    padding: 20px;
-    color: white;
-}
+      #Headingbox h1 {
+         color: #ff1a1a;
+         font-size: 3rem;
+         margin: 0;
+         text-transform: uppercase;
+         letter-spacing: 2px;
+      }
 
-header .logo h1 {
-    font-size: 24px;
-}
+      #Headingbox h6 {
+         color: #e60073;
+         font-size: 1.2rem;
+         margin: 5px 0 0;
+         font-style: italic;
+      }
 
-header .cart {
-    font-size: 18px;
-}
+      /* Marquee Animation */
+      marquee {
+         font-size: 1.5rem;
+         color: #ff6600;
+         font-weight: bold;
+         margin: 20px 0;
+      }
 
-header .cart-link {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
+      /* Button and Link Styles */
+      a {
+         text-decoration: none;
+         color: inherit;
+      }
 
-/* Banner Styling */
-.banner {
-    text-align: center;
-    background-color: #ffeb3b;
-    padding: 30px;
-}
+      a:hover {
+         color: #ff6600;
+         text-decoration: underline;
+      }
 
-.banner img {
-    width: 100%;
-    max-height: 300px;
-    object-fit: cover;
-    border-radius: 8px;
-}
+      /* Fruit Gallery Section */
+      .fruit-gallery {
+         display: grid;
+         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+         gap: 20px;
+         margin: 40px;
+      }
 
-.banner h2 {
-    font-size: 32px;
-    color: #333;
-    margin-top: 20px;
-}
+      .fruit-item {
+         background: linear-gradient(to bottom, #ffffff, #f9f9f9);
+         border: 2px solid #ddd;
+         border-radius: 12px;
+         overflow: hidden;
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+         cursor: pointer;
+         text-align: center;
+      }
 
-/* Products Section */
-.products {
-    padding: 40px;
-    text-align: center;
-}
+      .fruit-item:hover {
+         transform: scale(1.1);
+         box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+         background: linear-gradient(to bottom, #fffae6, #ffe6cc);
+      }
 
-.products h2 {
-    font-size: 28px;
-    margin-bottom: 30px;
-    color: #333;
-}
+      .fruit-item img {
+         width: 100%;
+         height: 200px;
+         object-fit: cover;
+      }
 
-.product-list {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
+      .fruit-item a {
+         display: block;
+         padding: 10px;
+         color: #333;
+         font-weight: bold;
+         font-size: 1.1rem;
+         background-color: #fff;
+         transition: background-color 0.3s;
+      }
 
-.product {
-    background-color: #fff;
-    padding: 20px;
-    margin: 10px;
-    width: 220px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
+      .fruit-item a:hover {
+         background-color: #ff6600;
+         color: #fff;
+      }
 
-.product img {
-    width: 100%;
-    height: 150px;
-    object-fit: contain;
-    border-radius: 8px;
-}
+      /* Footer Section */
+      #footer {
+         background-color: #333;
+         color: #f4f4f9;
+         text-align: center;
+         padding: 40px;
+         margin-top: 40px;
+         font-size: 1rem;
+      }
 
-.product h3 {
-    font-size: 22px;
-    color: #333;
-    margin-top: 10px;
-}
+      #footer a {
+         color: #f4f4f9;
+         text-decoration: none;
+         font-weight: bold;
+      }
 
-.product .price {
-    font-size: 18px;
-    color: #4CAF50;
-    margin: 10px 0;
-}
+      #footer a:hover {
+         text-decoration: underline;
+      }
 
-.add-to-cart {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
+      /* Custom Styles for Buttons */
+      .btn-primary {
+         background-color: #007bff;
+         color: white;
+         padding: 10px 20px;
+         border-radius: 5px;
+         transition: background-color 0.3s;
+      }
 
-.add-to-cart:hover {
-    background-color: #45a049;
-}
+      .btn-primary:hover {
+         background-color: #0056b3;
+         color: #fff;
+      }
 
-/* Footer Styling */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
+      .btn-secondary {
+         background-color: #ff6600;
+         color: white;
+         padding: 10px 20px;
+         border-radius: 5px;
+         transition: background-color 0.3s;
+      }
 
-/* Mobile Responsive Design */
-@media screen and (max-width: 768px) {
-    .product-list {
-        flex-direction: column;
-        align-items: center;
-    }
+      .btn-secondary:hover {
+         background-color: #cc5200;
+         color: #fff;
+      }
 
-    .product {
-        width: 90%;
-        margin-bottom: 20px;
-    }
-}
+      /* Responsiveness */
+      @media (max-width: 768px) {
+         #Headingbox h1 {
+            font-size: 2.5rem;
+         }
 
-    </style>
+         .fruit-gallery {
+            margin: 20px;
+         }
+
+         .fruit-item {
+            width: 100%;
+         }
+
+         
+         
+      }
+
+   </style>
 </head>
-<body>
+<body style="background-color:#ddd;">
 
-    <!-- Header Section -->
-    <header>
-        <div class="logo">
-            <h1>SS Fruits Shop</h1>
-        </div>
-        <div class="cart">
-            <a href="#" class="cart-link">🛒 Cart (0)</a>
-        </div>
-    </header>
 
-    <!-- Banner Section -->
-    <section class="banner">
-        <img src="images/fruit-banner.jpg" alt="Fresh Fruits Banner">
-        <h2>Order Fresh Fruits </h2>
-        <h5>Home Delivery Within 5 Minutes</h5>
-    </section>
 
-    <!-- Product Section -->
-    <section class="products">
-        <h2>Fruits</h2>
-        <div class="product-list">
-            <!-- Product 1 - Apple -->
-            <div class="product">
-                <img src="images/apple.jpg" alt="Apple">
-                <h3>Apple</h3>
-                <p class="price">$3.99</p>
-                <div class="quantity-options">
-                    <button class="quantity-btn">1 kg</button>
-                    <button class="quantity-btn">2 kg</button>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
+   <!-- Header -->
+   <div id="Headingbox">
+      <h1><img src="D:\applications\ss fruit shop\FruitsImage\orange.jpeg" alt="Fruit image" style="float:left;width:100px;height:100px;">SS FRUITS SHOP</h1>
 
-            <!-- Product 2 - Banana -->
-            <div class="product">
-                <img src="images/banana.jpg" alt="Banana">
-                <h3>Banana</h3>
-                <p class="price">$2.50</p>
-                <div class="quantity-options">
-                    <button class="quantity-btn">1 kg</button>
-                    <button class="quantity-btn">2 kg</button>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
+      <h6><mark>FRESH FRUITS</mark></h6>
+   </div>
 
-            <!-- Product 3 - Orange -->
-            <div class="product">
-                <img src="images/orange.jpg" alt="Orange">
-                <h3>Orange</h3>
-                <p class="price">$4.00</p>
-                <div class="quantity-options">
-                    <button class="quantity-btn">1 kg</button>
-                    <button class="quantity-btn">2 kg</button>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
+   <!-- Marquee Notification -->
+   <marquee direction="right" behavior="alternate" style="background-color: #ffcc99;">OFFERS AVAILABLE</marquee>
 
-            <!-- Product 4 - Grapes -->
-            <div class="product">
-                <img src="images/grape.jpg" alt="Grapes">
-                <h3>Grapes</h3>
-                <p class="price">$5.00</p>
-                <div class="quantity-options">
-                    <button class="quantity-btn">1 kg</button>
-                    <button class="quantity-btn">2 kg</button>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
+   <!-- Call to Action --><centre>
+   <div style="text-align: center; padding: 20px; width:250px;margin-left: 335px;">
+      <small>Click Here:</small>
+      <a href="D:\applications\ss fruit shop\BUY SS FRUIT.html" title="Go to Fruits Order Page">
+      <a href="file:///D:/applications/ss%20fruit%20shop/Order%20SS%20Fruits%20Shop.html" > <h2 class="btn-primary" style="cursor: pointer;"><b>ORDER NOW</b></h2></a> 
+      </a>
+      <h4>Home Delivery</h4>
+      
+   </div>
+   <p class="btn-secondary"   style=" width:700px;margin-left: 100px;text-align: center;">See Fruits Benefits and Vitamins</p>
+   <!-- Fruit Gallery -->
+   <div class="fruit-gallery">
+      <div class="fruit-item">
+         <a href="apple.html" title="Learn more about Apples">
+            <img src="D:\applications\ss fruit shop\FruitsImage\apple.jpeg" alt="Apple">
+            Apple
+         </a>
+      </div>
+      <div class="fruit-item">
+         <a href="orange.html" title="Learn more about Oranges">
+            <img src="D:\applications\ss fruit shop\FruitsImage\orange.jpeg" alt="Orange">
+            Orange
+         </a>
+      </div>
+      <div class="fruit-item">
+         <a href="banana.html" title="Learn more about Bananas">
+            <img src="D:\applications\ss fruit shop\FruitsImage\banana.jpeg" alt="Banana">
+            Banana
+         </a>
+      </div>
+      <div class="fruit-item">
+         <a href="grapes.html" title="Learn more about Grapes">
+            <img src="D:\applications\ss fruit shop\FruitsImage\grapes.jpeg" alt="Grapes">
+            Grapes
+         </a>
+      </div>
+      <div class="fruit-item">
+         <a href="mango.html" title="Learn more about Mangoes">
+            <img src="D:\applications\ss fruit shop\FruitsImage\mango.jpeg" alt="Mango">
+            Mango
+         </a>
+      </div>
+      <div class="fruit-item">
+         <a href="papaya.html" title="Learn more about Papayas">
+            <img src="D:\applications\ss fruit shop\FruitsImage\papaya.jpeg" alt="Papaya">
+            Papaya
+         </a>
+      </div>
+      <div class="fruit-item">
+         <a href="strawberry.html" title="Learn more about Strawberries">
+            <img src="D:\applications\ss fruit shop\FruitsImage\strawberry.jpeg" alt="Strawberry">
+            Strawberry
+         </a>
+      </div>
+      <div class="fruit-item">
+         <a href="kiwi.html" title="Learn more about Kiwis">
+            <img src="D:\applications\ss fruit shop\FruitsImage\kiwi.jpeg" alt="Kiwi">
+            Kiwi
+         </a>
+      </div>
+      <div class="fruit-item">
+         <a href="blueberry.html" title="Learn more about Blueberries">
+            <img src="D:\applications\ss fruit shop\FruitsImage\blueberry.jpeg" alt="Blueberry">
+            Blueberry
+         </a>
+      </div>
+      <div class="fruit-item">
+         <a href="pineapple.html" title="Learn more about Pineapples">
+            <img src="D:\applications\ss fruit shop\FruitsImage\pineapple.jpeg" alt="Pineapple">
+            Pineapple
+         </a>
+      </div>
+      <div class="fruit-item">
+         <a href="watermelon.html" title="Learn more about Watermelons">
+            <img src="D:\applications\ss fruit shop\FruitsImage\watermelon.jpeg" alt="Watermelon">
+            Watermelon
+         </a>
+      </div>
+      <div class="fruit-item">
+         <a href="pear.html" title="Learn more about Pears">
+            <img src="D:\applications\ss fruit shop\FruitsImage\pear.jpeg" alt="Pear">
+            Pear
+         </a>
+      </div>
+</div>
 
-            <!-- Product 5 - Mango -->
-            <div class="product">
-                <img src="images/mango.jpg" alt="Mango">
-                <h3>Mango</h3>
-                <p class="price">$6.00</p>
-                <div class="quantity-options">
-                    <button class="quantity-btn">1 kg</button>
-                    <button class="quantity-btn">2 kg</button>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
 
-            <!-- Product 6 - Pineapple -->
-            <div class="product">
-                <img src="images/pineapple.jpg" alt="Pineapple">
-                <h3>Pineapple</h3>
-                <p class="price">$4.50</p>
-                <div class="quantity-options">
-                    <button class="quantity-btn">1 kg</button>
-                    <button class="quantity-btn">2 kg</button>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-        </div>
-    </section>
 
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2024 SS Fruits Shop. All rights reserved.</p>
-    </footer>
 
-</body>
-</html>
+           <!---footer-->
+   <footer>
+     <div class="footer" style="background-color: black;width:919px;color: #f4f4f9;">
+      <div class="s_container" style="margin: 40px;">
+          <div class="row">
+              <div class="foot-1" style=" float: left;">
+                  <h3>Download Our App</h3>
+                  <p>Download App for Andriod and ios mobile phone</p>
+                  <div class="app-logo"style=" float: left;">
+                      <img src="images/play-store.png" alt="playstore img">
+                      <img src="images/app-store.png" alt="app store img">
+                  </div>
+              </div>
+              <div class="foot-2" style=" float: left;margin: 40px;">
+                  <h2 class="f">SS FRUITS SHOP STORE</h2>
+                  <p><pre>      Order the Fruits and Enjoy it.
+              HOME DELIVERY<pre></p>
+              </div>
+              <div class="foot-3">
+               <br>
+                  <h3>AVAILABLE</h3>
+                  <ul>
+                      <li>Coupons</li>
+                      <li>Replacement policy</li>
+                      <li>Return policy </li>
+                  </ul>
+              </div>
+              <br> <br>
+              <div class="foot-4">
+                  <h3>     Follow Us</h3>
+                  <ul>
+                      
+                      <a href=""><li>Instagram</li></a>
+                      <a href=""><li>Youtube</li></a>
+                  </ul>
+              </div>
+          </div>
+          <hr>
+          <p style="text-align: center;">&copy; 2024 SS Fruits Shop. All rights reserved.</p>
+      </div>
+   </div>
+</footer></body>
+   <html.
+
+
+
+
+    
