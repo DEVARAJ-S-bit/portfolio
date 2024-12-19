@@ -1,323 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="mediaqueries.css" />
-  </head>
-  <body>
-    <nav id="desktop-nav">
-      <div class="logo"><i>DEVARAJ S</i></div>
-      <div>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skill</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
-    <nav id="hamburger-nav">
-      <div class="logo">DEVARAJ S</div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Shop - Order Fresh Fruits Online</title>
+    <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body & Basic Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4CAF50;
+    padding: 20px;
+    color: white;
+}
+
+header .logo h1 {
+    font-size: 24px;
+}
+
+header .cart {
+    font-size: 18px;
+}
+
+header .cart-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Banner Styling */
+.banner {
+    text-align: center;
+    background-color: #ffeb3b;
+    padding: 30px;
+}
+
+.banner img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.banner h2 {
+    font-size: 32px;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Products Section */
+.products {
+    padding: 40px;
+    text-align: center;
+}
+
+.products h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.product-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.product {
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px;
+    width: 220px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.product img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.product h3 {
+    font-size: 22px;
+    color: #333;
+    margin-top: 10px;
+}
+
+.product .price {
+    font-size: 18px;
+    color: #4CAF50;
+    margin: 10px 0;
+}
+
+.add-to-cart {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.add-to-cart:hover {
+    background-color: #45a049;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Mobile Responsive Design */
+@media screen and (max-width: 768px) {
+    .product-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>SS Fruits Shop</h1>
         </div>
-        <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        <div class="cart">
+            <a href="#" class="cart-link">🛒 Cart (0)</a>
         </div>
-      </div>
-    </nav>
-    <section id="profile">
-      <div class="section__pic-container">
-        <img src="./assets/images/deva.jpg" alt="profile picture" />
-      </div>
-      <div class="section__text">
-        <p class="section__text__p1">Hello, I'm</p>
-        <h1 class="title">DEVARAJ S</h1>
-        <p class="section__text__p2">Web Developer/Fullstack Developer</p>
-        <div class="btn-container">
-          <button
-            class="btn btn-color-2"
-            onclick="window.open()"
-          >
-            Download CV
-          </button>
-          <button class="btn btn-color-1" onclick="location.href='./#contact'">
-            Contact Info
-          </button>
-        </div>
-        <div id="socials-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="My LinkedIn profile"
-            class="icon"
-            onclick="location.href='https://www.linkedin.com/in/devaraj05/'"
-          />
-          <img
-            src="./assets/github.png"
-            alt="My Github profile"
-            class="icon"
-            onclick="location.href='https://github.com/dashboard'"
-          />
-        </div>
-      </div>
+    </header>
+
+    <!-- Banner Section -->
+    <section class="banner">
+        <img src="images/fruit-banner.jpg" alt="Fresh Fruits Banner">
+        <h2>Order Fresh Fruits </h2>
+        <h5>Home Delivery Within 5 Minutes</h5>
     </section>
-    <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title">About Me</h1>
-      <div class="section-container">
-        <div class="section__pic-container">
-          <img
-            src="./assets/images/deva.jpg"
-            alt="Profile picture"
-            class="about-pic"
-          />
-        </div>
-        <div class="about-details-container">
-          <div class="about-containers">
-            <div class="details-container">
-              <img
-                src="./assets/education.png"
-                alt="Education icon"
-                class="icon"
-              />
-              <h3>Education</h3>
-              <p>B.Sc Computer Science <br/> Bachelor Degree  </p>
+
+    <!-- Product Section -->
+    <section class="products">
+        <h2>Fruits</h2>
+        <div class="product-list">
+            <!-- Product 1 - Apple -->
+            <div class="product">
+                <img src="images/apple.jpg" alt="Apple">
+                <h3>Apple</h3>
+                <p class="price">$3.99</p>
+                <div class="quantity-options">
+                    <button class="quantity-btn">1 kg</button>
+                    <button class="quantity-btn">2 kg</button>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
             </div>
-          </div>
-          <div class="text-container">
-            <p>
-              Hello there! I'm <B>DEVARAJ S</b>, a Developer with a passion for Web .
-              I've honed my skills in <i>Frontend</i> and <i>Backend</i> to create captivating digital experiences.
-              Let's connect and explore the exciting possibilities together. Whether it's collaborating on a project or just a contact message,
-               I'm excited to hear from you.Feel free to contact me !!
-            </p>
-          </div>
+
+            <!-- Product 2 - Banana -->
+            <div class="product">
+                <img src="images/banana.jpg" alt="Banana">
+                <h3>Banana</h3>
+                <p class="price">$2.50</p>
+                <div class="quantity-options">
+                    <button class="quantity-btn">1 kg</button>
+                    <button class="quantity-btn">2 kg</button>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+            <!-- Product 3 - Orange -->
+            <div class="product">
+                <img src="images/orange.jpg" alt="Orange">
+                <h3>Orange</h3>
+                <p class="price">$4.00</p>
+                <div class="quantity-options">
+                    <button class="quantity-btn">1 kg</button>
+                    <button class="quantity-btn">2 kg</button>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+            <!-- Product 4 - Grapes -->
+            <div class="product">
+                <img src="images/grape.jpg" alt="Grapes">
+                <h3>Grapes</h3>
+                <p class="price">$5.00</p>
+                <div class="quantity-options">
+                    <button class="quantity-btn">1 kg</button>
+                    <button class="quantity-btn">2 kg</button>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+            <!-- Product 5 - Mango -->
+            <div class="product">
+                <img src="images/mango.jpg" alt="Mango">
+                <h3>Mango</h3>
+                <p class="price">$6.00</p>
+                <div class="quantity-options">
+                    <button class="quantity-btn">1 kg</button>
+                    <button class="quantity-btn">2 kg</button>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+            <!-- Product 6 - Pineapple -->
+            <div class="product">
+                <img src="images/pineapple.jpg" alt="Pineapple">
+                <h3>Pineapple</h3>
+                <p class="price">$4.50</p>
+                <div class="quantity-options">
+                    <button class="quantity-btn">1 kg</button>
+                    <button class="quantity-btn">2 kg</button>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
         </div>
-      </div>
     </section>
-    <section id="skills">
-      <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Skill</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container">
-            <h2 class="experience-sub-title">Frontend Development</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>HTML</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>CSS</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>JavaScript</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>React js</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-            </div>
-          </div>
-          <div class="details-container">
-            <h2 class="experience-sub-title">Backend Development</h2>
-            <div class="article-container">   
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Git</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Php</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Java</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-   
-    <!--project-->
-    <section id="projects">
-      <p class="section__text__p1">Browse My Recent</p>
-      <h1 class="title">Projects</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img width="200px " height="100%"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0NRazyJxHognQQ_V0DhnWJS0WXgXM27AIiA&usqp=CAU"
-                alt="Project 1"
-                class="project-img1"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Text-Editor</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/DEVARAJ-S-bit/TextEditor'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://devaraj-s-bit.github.io/TextEditor/'"
-              >
-                Live Demo
-              </button>
-            </div>
-          </div>
-         <! <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="https://img.freepik.com/free-vector/ecommerce-web-page-concept-illustration_114360-8204.jpg?w=2000"
-                alt="Project 2"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">E-commerce Website</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/DEVARAJ-S-bit/E-Commerce'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://devaraj-s-bit.github.io/E-Commerce/'"
-              >
-                Live Demo
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img class="pro-3"
-                src="https://c8.alamy.com/comp/2G66HP6/weather-forecast-smartphone-application-vector-template-mobile-app-page-blue-interface-weather-condition-sunny-rainy-cloudy-thunderstorm-day-phone-2G66HP6.jpg"
-                alt="Project 3"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Weather App</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/DEVARAJ-S-bit/weather.git'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://devaraj-s-bit.github.io/weather/'"
-              >
-                Live Demo
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-    </section>
-    <!---contact-->
-    <section id="contact">
-      <p class="section__text__p1">Get in Touch</p>
-      <h1 class="title">Contact Me</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <img
-            src="./assets/email.png"
-            alt="Email icon"
-            class="icon contact-icon email-icon"
-          />
-          <p><a href="">devaraj05112002@gmail.com</a></p>
-        </div>
-        <div class="contact-info-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="LinkedIn icon"
-            class="icon contact-icon"
-          />
-          <p><a href="https://www.linkedin.com/in/devaraj05">LinkedIn</a></p>
-        </div>
-      </div>
-    </section>
+
+    <!-- Footer Section -->
     <footer>
-      <nav>
-        <div class="nav-links-container">
-          <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skill</a></li>
-            
-            <li><a href=" https://devaraj-s-bit.github.io/portfolio/"><b>Certificates</b></a></li>
-            
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
-      <p>Copyright &#169; 2024 DEVARAJ. All Rights Reserved.</p>
+        <p>&copy; 2024 SS Fruits Shop. All rights reserved.</p>
     </footer>
-    <script src="script.js"></script>
-  </body>
+
+</body>
 </html>
